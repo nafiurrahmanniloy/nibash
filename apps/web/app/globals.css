@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * globals.css — app base styles.
+ * Imports the shared design-token CSS variables (single source compiled from
+ * design.md) so raw CSS and the Tailwind preset reference the same values.
+ * Base layer sets the page surface/text/font and a global focus-visible fallback
+ * ring (design.md §6 acceptance criterion 2) plus prefers-reduced-motion handling
+ * (acceptance criterion 7).
+ */
+@import '@travela/shared/tokens/css-variables.css';
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-surface-base text-content-primary font-body antialiased;
+  }
+
+  /* Restraint: display font reserved for H1/H2/hero/price (design.md §2.3). */
+  h1,
+  h2 {
+    @apply font-display;
+  }
+
+  /*
+   * Global focus-visible fallback. Individual interactive components add the
+   * token ring (focus-visible:ring-2 ring-focus ring-offset-2); this guarantees a
+   * visible ring even on elements that forget it — focus is never invisible.
+   */
+  :focus-visible {
+    outline: 2px solid var(--border-focus, #0a4537);
+    outline-offset: 2px;
+  }
+
+  /* Respect OS reduced-motion: collapse animation/transition (design.md §2.5). */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

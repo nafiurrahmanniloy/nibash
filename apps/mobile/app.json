@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "Travela",
+    "slug": "travela-stay",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "travela",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#F6F4EF"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.travela.stay"
+    },
+    "android": {
+      "package": "com.travela.stay",
+      "adaptiveIcon": {
+        "backgroundColor": "#0E5C4A"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": ["expo-router"],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

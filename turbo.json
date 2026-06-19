@@ -1,0 +1,42 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "globalDependencies": [".env", ".env.example", "tsconfig.base.json"],
+  "globalEnv": [
+    "NODE_ENV",
+    "NEXT_PUBLIC_SUPABASE_URL",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+    "SUPABASE_SERVICE_ROLE",
+    "NEXT_PUBLIC_SITE_URL",
+    "SSLCOMMERZ_STORE_ID",
+    "SSLCOMMERZ_STORE_PASSWORD",
+    "SSLCOMMERZ_IS_SANDBOX",
+    "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY",
+    "RESEND_API_KEY",
+    "EMAIL_FROM",
+    "FCM_PROJECT_ID",
+    "FCM_CLIENT_EMAIL",
+    "FCM_PRIVATE_KEY"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**", ".expo/**"]
+    },
+    "dev": {
+      "dependsOn": ["^build"],
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "dependsOn": ["^build"]
+    },
+    "type-check": {
+      "dependsOn": ["^build"],
+      "outputs": ["*.tsbuildinfo"]
+    },
+    "clean": {
+      "cache": false
+    }
+  }
+}
