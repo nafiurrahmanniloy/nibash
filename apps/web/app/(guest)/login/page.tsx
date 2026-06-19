@@ -7,7 +7,7 @@
  */
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { LoginForm, GoogleButton } from '@/features/auth';
+import { LoginForm } from '@/features/auth';
 import { cn } from '@/lib/cn';
 
 export const metadata: Metadata = {
@@ -27,16 +27,10 @@ export default function LoginPage() {
         Log in to manage your stays and bookings.
       </p>
 
-      <div className="mt-8 space-y-6">
+      {/* LoginForm already renders the email/password fields, the divider, and the
+          Google OAuth button — the page only frames it. */}
+      <div className="mt-8">
         <LoginForm />
-
-        <div className="flex items-center gap-3" aria-hidden="true">
-          <span className="h-px flex-1 bg-line-default" />
-          <span className="text-xs text-content-muted">or</span>
-          <span className="h-px flex-1 bg-line-default" />
-        </div>
-
-        <GoogleButton />
       </div>
 
       <p className="mt-8 text-sm text-content-secondary">

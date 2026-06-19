@@ -5,7 +5,8 @@
  * These components never import feature code (ARCHITECTURE.md §2: components/ui is a leaf).
  */
 
-export { Button, buttonVariants } from './Button';
+export { Button } from './Button';
+export { buttonVariants, type ButtonVariantProps } from './button-variants';
 export type { ButtonProps, LabelledButtonProps, IconOnlyButtonProps } from './Button';
 
 export { Input } from './Input';

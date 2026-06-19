@@ -12,7 +12,7 @@
  */
 import Link from 'next/link';
 import { Search, Menu } from 'lucide-react';
-import { buttonVariants } from '@/components/ui';
+import { buttonVariants } from '@/components/ui/button-variants';
 import { cn } from '@/lib/cn';
 
 const focusRing =

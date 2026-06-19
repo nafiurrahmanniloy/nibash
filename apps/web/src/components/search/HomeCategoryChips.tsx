@@ -12,7 +12,7 @@ import {
   listingCategorySchema,
   type ListingCategory,
 } from '@travela/shared';
-import { CategoryChips } from '@/features/search';
+import { CategoryChips } from '@/features/search/components/CategoryChips';
 
 export function HomeCategoryChips() {
   const router = useRouter();

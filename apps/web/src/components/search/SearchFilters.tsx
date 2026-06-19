@@ -10,7 +10,7 @@
  */
 import { useRouter, useSearchParams } from 'next/navigation';
 import type { SearchParams } from '@travela/shared';
-import { Filters, type FilterValues } from '@/features/search';
+import { Filters, type FilterValues } from '@/features/search/components/Filters';
 
 export interface SearchFiltersProps {
   params: SearchParams;

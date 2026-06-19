@@ -11,7 +11,7 @@
  * States are owned by the wrapped <SearchBar/> (seven-state primitive).
  */
 import { useRouter } from 'next/navigation';
-import { SearchBar, type SearchBarValues } from '@/features/search';
+import { SearchBar, type SearchBarValues } from '@/features/search/components/SearchBar';
 
 export function HomeSearchBar() {
   const router = useRouter();

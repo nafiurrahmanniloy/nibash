@@ -31,8 +31,20 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   transpilePackages: ['@travela/shared'],
   images: { remotePatterns },
-  experimental: {
-    typedRoutes: true,
+  // typedRoutes graduated out of `experimental` in Next 15.
+  typedRoutes: true,
+  /**
+   * The shared package and feature barrels use explicit `.js` extensions on relative
+   * imports (NodeNext/ESM-correct). Tell webpack to resolve a `.js` specifier to the
+   * `.ts`/`.tsx` source so those imports work without rewriting every barrel.
+   */
+  webpack: (config) => {
+    config.resolve.extensionAlias = {
+      ...(config.resolve.extensionAlias ?? {}),
+      '.js': ['.ts', '.tsx', '.js', '.jsx'],
+      '.mjs': ['.mts', '.mjs'],
+    };
+    return config;
   },
 };
 
