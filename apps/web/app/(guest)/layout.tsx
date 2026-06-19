@@ -12,7 +12,7 @@ export default function GuestLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="pb-16 md:pb-0">
+    <div className="pb-24 md:pb-0">
       {children}
       <BottomNav />
     </div>

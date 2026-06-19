@@ -63,12 +63,14 @@ export async function Nav() {
           href="/search"
           aria-label="Search stays"
           className={cn(
-            'hidden flex-1 items-center gap-2 rounded-pill border border-line-default bg-surface-base px-4 py-2 text-sm text-content-secondary shadow-soft-sm transition-colors duration-instant hover:border-line-strong md:flex md:max-w-md',
+            'hidden min-w-0 flex-1 items-center gap-2 rounded-pill border border-line-default bg-surface-base px-4 py-2 text-sm text-content-secondary shadow-soft-sm transition-colors duration-instant hover:border-line-strong md:flex md:max-w-md',
             focusRing,
           )}
         >
           <Search className="h-4 w-4 shrink-0 text-content-muted" aria-hidden="true" />
-          <span>Where to? Anywhere · Any week · Add guests</span>
+          <span className="truncate whitespace-nowrap">
+            Where to? Anywhere · Any week · Add guests
+          </span>
         </Link>
 
         {/* Auth + host links — signed-in vs signed-out affordances */}

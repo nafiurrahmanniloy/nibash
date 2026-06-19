@@ -63,7 +63,7 @@ export default async function ListingDetailPage({
 
       <ListingGallery images={listing.images} title={listing.title} />
 
-      <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-[1fr_360px]">
+      <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-[1fr_320px] lg:grid-cols-[1fr_360px]">
         {/* Main column */}
         <div className="min-w-0 space-y-8">
           <section aria-labelledby="about-heading">
@@ -119,8 +119,9 @@ export default async function ListingDetailPage({
           </section>
         </div>
 
-        {/* Booking sidebar (sticky on desktop) */}
-        <aside className="lg:sticky lg:top-20 lg:self-start">
+        {/* Booking sidebar — shown first on mobile (right under the gallery), then a
+            sticky right rail from tablet up so the CTA is never buried. */}
+        <aside className="order-first md:order-none md:sticky md:top-20 md:self-start">
           <BookingWidget
             listingId={listing.id}
             pricePerDay={listing.pricePerDay}

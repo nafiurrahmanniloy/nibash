@@ -48,15 +48,15 @@ export function CollectionBand({
         ) : null}
       </div>
 
-      <div className="flex gap-4 overflow-x-auto pb-2">
+      <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-px-4 pb-2 [scrollbar-width:thin]">
         {loading
           ? Array.from({ length: 4 }).map((_, i) => (
-              <div key={i} className="w-64 shrink-0 sm:w-72">
+              <div key={i} className="w-[78%] shrink-0 snap-start sm:w-72">
                 <ListingCardSkeleton />
               </div>
             ))
           : listings.map((listing) => (
-              <div key={listing.id} className="w-64 shrink-0 sm:w-72">
+              <div key={listing.id} className="w-[78%] shrink-0 snap-start sm:w-72">
                 <ListingCard listing={listing} />
               </div>
             ))}

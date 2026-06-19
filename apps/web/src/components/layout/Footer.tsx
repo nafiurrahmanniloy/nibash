@@ -54,7 +54,9 @@ const SOCIALS: FooterLink[] = [
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-line-default bg-surface-raised">
-      <div className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+      {/* Extra bottom padding on mobile so the footer clears the fixed BottomNav on
+          guest routes (harmless breathing room elsewhere). */}
+      <div className="mx-auto max-w-7xl px-4 pb-24 pt-8 md:px-6 md:pb-8">
         <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
             <p className="font-display text-lg font-bold text-brand">Nibash</p>
