@@ -14,7 +14,7 @@
  */
 import { NextResponse, type NextRequest } from 'next/server';
 import { createServerClient } from '@supabase/ssr';
-import type { Database, UserRole } from '@travela/shared';
+import type { Database, UserRole } from '@nibash/shared';
 import { DEMO_MODE, DEMO_COOKIE, DEMO_ROLE } from '@/lib/demo/flag';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;

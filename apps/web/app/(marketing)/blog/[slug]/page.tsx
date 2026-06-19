@@ -15,7 +15,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const readable = slug.replace(/-/g, ' ');
-  return { title: readable, description: `Travela blog — ${readable}.` };
+  return { title: readable, description: `Nibash blog — ${readable}.` };
 }
 
 export default async function BlogPostPage({

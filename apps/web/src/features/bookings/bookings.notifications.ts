@@ -8,7 +8,7 @@
  * This is intentionally side-effecting glue, NOT business logic — it never decides a
  * transition, it only announces one that already happened.
  */
-import type { BookingAction, BookingStatusValue } from '@travela/shared';
+import type { BookingAction, BookingStatusValue } from '@nibash/shared';
 
 export interface BookingEvent {
   bookingId: string;

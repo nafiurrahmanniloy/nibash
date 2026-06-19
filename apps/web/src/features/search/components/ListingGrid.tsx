@@ -8,7 +8,7 @@
  *   default  → the card grid
  * Responsive at sm/md/lg/xl with stable column counts.
  */
-import type { ListingCardDTO } from '@travela/shared';
+import type { ListingCardDTO } from '@nibash/shared';
 import { ListingCard, ListingCardSkeleton } from '@/features/listings';
 
 export interface ListingGridProps {

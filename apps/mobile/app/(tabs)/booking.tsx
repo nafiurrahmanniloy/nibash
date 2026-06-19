@@ -7,7 +7,7 @@
  * feature repository is wired for mobile.
  */
 import { StyleSheet, Text, View } from 'react-native';
-import { BOOKING_STATUSES, type BookingStatusValue } from '@travela/shared/schemas';
+import { BOOKING_STATUSES, type BookingStatusValue } from '@nibash/shared/schemas';
 import { ScreenScaffold } from '@/components/ScreenScaffold';
 import { theme } from '@/theme/theme';
 

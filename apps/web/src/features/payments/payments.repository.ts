@@ -6,7 +6,7 @@
  * columns only; returns raw rows. All flow decisions live in payments.service.ts;
  * driving the booking state machine is delegated to the bookings feature.
  */
-import type { Json, Payment, PaymentStatus } from '@travela/shared';
+import type { Json, Payment, PaymentStatus } from '@nibash/shared';
 import { getAdminSupabase } from '@/lib/supabase/admin';
 import { RepositoryError } from '@/lib/errors';
 

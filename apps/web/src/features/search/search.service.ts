@@ -13,7 +13,7 @@ import {
   type Paginated,
   type Result,
   type SearchParams,
-} from '@travela/shared';
+} from '@nibash/shared';
 import { toApiError } from '@/lib/errors';
 import { composeListingCards } from '@/features/listings';
 import * as repo from './search.repository.js';

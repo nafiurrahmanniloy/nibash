@@ -1,5 +1,5 @@
 /**
- * @travela/shared — cross-platform contract layer.
+ * @nibash/shared — cross-platform contract layer.
  *
  * Single source of truth consumed by apps/web and apps/mobile:
  *  - tokens   : design.md compiled to TS + a Tailwind preset (+ css-variables.css)
@@ -9,7 +9,7 @@
  *  - api      : the Result/ApiResponse helper services return
  *
  * Import the CSS variables separately as a side-effect:
- *   import "@travela/shared/tokens/css-variables.css";
+ *   import "@nibash/shared/tokens/css-variables.css";
  */
 export * from './tokens/index.js';
 export * from './types/index.js';

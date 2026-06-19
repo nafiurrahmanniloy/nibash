@@ -53,7 +53,7 @@ pnpm -F web build
 ## What works now vs deferred
 
 **Working (code-complete, needs only env + DB):**
-- Monorepo (Turborepo/pnpm), `@travela/shared` contract package (tokens, zod schemas/DTOs, DB types).
+- Monorepo (Turborepo/pnpm), `@nibash/shared` contract package (tokens, zod schemas/DTOs, DB types).
 - Design system: tokens compiled to a Tailwind preset + CSS vars; full UI primitive set with the
   7-state matrix and AA focus/aria rules.
 - Guest discovery: home (hero search, category chips, collection bands, new arrivals), search +

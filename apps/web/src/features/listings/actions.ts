@@ -9,7 +9,7 @@ import {
   type ListingCardDTO,
   type ListingPublicDTO,
   type Result,
-} from '@travela/shared';
+} from '@nibash/shared';
 import { zodToApiError } from '@/lib/errors';
 import * as service from './listings.service.js';
 

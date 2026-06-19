@@ -3,7 +3,7 @@
  * speaks ONE error shape (ARCHITECTURE.md §4: "one error handler shape").
  *
  * Two failure styles coexist by design:
- *  - Services return `Result<T>` (from @travela/shared) for EXPECTED failures and
+ *  - Services return `Result<T>` (from @nibash/shared) for EXPECTED failures and
  *    use the `err(code, message, extra)` constructor. The helpers here produce the
  *    `extra` payload: `zodToApiError` (field errors) and `toApiError` (cause).
  *  - Repositories THROW `RepositoryError` for DB-layer faults; services catch and
@@ -18,7 +18,7 @@ import {
   type ApiErrorCode,
   err,
   httpStatusForError,
-} from '@travela/shared';
+} from '@nibash/shared';
 import { z } from 'zod';
 import { logger } from './logger.js';
 

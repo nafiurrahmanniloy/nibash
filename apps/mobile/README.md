@@ -1,7 +1,7 @@
-# @travela/mobile — Expo (React Native) app
+# @nibash/mobile — Expo (React Native) app
 
-Phase-7 scaffold of the Travela Stay Platform mobile client. Consumes
-[`@travela/shared`](../../packages/shared) for the design tokens, zod schemas/DTOs,
+Phase-7 scaffold of the Nibash Stay Platform mobile client. Consumes
+[`@nibash/shared`](../../packages/shared) for the design tokens, zod schemas/DTOs,
 enum unions, and the typed Supabase client — so web and mobile share **one** contract.
 
 ## What's here
@@ -21,7 +21,7 @@ src/
     env.ts                 fail-fast zod validation of EXPO_PUBLIC_* at boot
     supabase.ts            the app's single Supabase seam (shared createAnonClient)
     money.ts               BDT (৳) formatting for the device
-  theme/theme.ts           native bridge to @travela/shared design tokens (no raw hex)
+  theme/theme.ts           native bridge to @nibash/shared design tokens (no raw hex)
   components/
     ScreenScaffold.tsx     shared screen shell (cream surface, display H1)
     ListingCard.tsx        listing card primitive (design.md §4.2), seven states
@@ -31,7 +31,7 @@ src/
 ## Design discipline
 
 - **Tokens only.** React Native can't use the Tailwind class names, so `theme.ts`
-  re-exports the **semantic** token layer from `@travela/shared`. Components reference
+  re-exports the **semantic** token layer from `@nibash/shared`. Components reference
   `theme.color.*` / `theme.space.*` — never a raw hex, never a primitive
   (`design.md` §2.2 / §7).
 - **Seven states.** Interactive components (`ListingCard`, the Profile CTA) document
@@ -53,7 +53,7 @@ swapping in real responses is a drop-in.
 ```bash
 cp .env.example .env   # fill EXPO_PUBLIC_SUPABASE_URL / _ANON_KEY
 pnpm install           # from the monorepo root
-pnpm --filter @travela/mobile start
+pnpm --filter @nibash/mobile start
 ```
 
 > The service-role key is **never** bundled into the device app — only the RLS-guarded

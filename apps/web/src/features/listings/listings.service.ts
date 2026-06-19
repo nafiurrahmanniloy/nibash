@@ -11,7 +11,7 @@ import {
   type ListingCardDTO,
   type ListingPublicDTO,
   type Result,
-} from '@travela/shared';
+} from '@nibash/shared';
 import { toApiError } from '@/lib/errors';
 import * as repo from './listings.repository.js';
 import {

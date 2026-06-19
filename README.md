@@ -1,6 +1,6 @@
-# Travela — Short-Term Stay Booking Platform
+# Nibash — Short-Term Stay Booking Platform
 
-A Travela-style short-stay marketplace (request-to-book): guests discover and request
+A Nibash-style short-stay marketplace (request-to-book): guests discover and request
 listings, hosts approve, guests pay via SSLCommerz, bookings confirm. Web first
 (Next.js), then an Expo Android app, both sharing one typed contract.
 
@@ -23,7 +23,7 @@ apps/
   web/        Next.js (App Router) — guest, host, and admin surfaces
   mobile/     Expo (React Native) Android app, consumes packages/shared
 packages/
-  shared/     @travela/shared — TS types, zod schemas, Supabase client,
+  shared/     @nibash/shared — TS types, zod schemas, Supabase client,
               API helpers, and the design tokens compiled from design.md
 supabase/
   migrations/ SQL schema + RLS policies + the booking EXCLUDE constraint (§3)
@@ -31,7 +31,7 @@ supabase/
 ```
 
 Root config (this folder): `package.json` (pnpm + turbo scripts), `pnpm-workspace.yaml`,
-`turbo.json` (task graph), `tsconfig.base.json` (strict TS + `@travela/shared` path),
+`turbo.json` (task graph), `tsconfig.base.json` (strict TS + `@nibash/shared` path),
 `.env.example`, `.prettierrc`, `.nvmrc`.
 
 ## The layering rule (one-way, enforced in review)

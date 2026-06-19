@@ -11,7 +11,7 @@ import type {
   Listing,
   ListingImage,
   Profile,
-} from '@travela/shared';
+} from '@nibash/shared';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { RepositoryError } from '@/lib/errors';
 import { DEMO_MODE } from '@/lib/demo/flag';

@@ -12,7 +12,7 @@
  * (BUILD-PLAN §3: "no overlapping availability_blocks AND no overlapping confirmed
  * booking").
  */
-import type { Collection } from '@travela/shared';
+import type { Collection } from '@nibash/shared';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { RepositoryError } from '@/lib/errors';
 import type { PublicListingRow } from '@/features/listings/listings.repository';

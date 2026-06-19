@@ -19,7 +19,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import type { ListingCardDTO } from '@travela/shared';
+import type { ListingCardDTO } from '@nibash/shared';
 import { RatingStars, Skeleton } from '@/components/ui';
 import { cn } from '@/lib/cn';
 import { formatBdt } from '@/lib/money';

@@ -20,7 +20,7 @@ import {
   type ListingImageDTO,
   type ListingPublicDTO,
   type Profile,
-} from '@travela/shared';
+} from '@nibash/shared';
 import type {
   ListingRatingRow,
   PublicListingRow,

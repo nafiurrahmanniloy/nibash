@@ -36,7 +36,7 @@ on conflict (id) do nothing;
 -- ── Collections (curated homepage bands) ─────────────────────────────────────
 insert into public.collections (id, name, slug, description, sort_order) values
   ('c0000000-0000-0000-0000-000000000001', 'New Arrivals',
-     'Freshly listed stays just added to Travela.', 1),
+     'Freshly listed stays just added to Nibash.', 1),
   ('c0000000-0000-0000-0000-000000000002', 'Party Stays',
      'Spacious homes built for gatherings and group getaways.', 2),
   ('c0000000-0000-0000-0000-000000000003', 'Dhaka City Picks',
@@ -58,12 +58,12 @@ insert into auth.users
 values
   ('11111111-1111-1111-1111-111111111111',
    '00000000-0000-0000-0000-000000000000', 'authenticated', 'authenticated',
-   'host.ayesha@travela.demo', crypt('demo-password', gen_salt('bf')),
+   'host.ayesha@nibash.demo', crypt('demo-password', gen_salt('bf')),
    now(), '{"provider":"email","providers":["email"]}',
    '{"full_name":"Ayesha Rahman"}', now(), now()),
   ('22222222-2222-2222-2222-222222222222',
    '00000000-0000-0000-0000-000000000000', 'authenticated', 'authenticated',
-   'host.tanvir@travela.demo', crypt('demo-password', gen_salt('bf')),
+   'host.tanvir@nibash.demo', crypt('demo-password', gen_salt('bf')),
    now(), '{"provider":"email","providers":["email"]}',
    '{"full_name":"Tanvir Hasan"}', now(), now())
 on conflict (id) do nothing;
@@ -151,25 +151,25 @@ on conflict (id) do nothing;
 -- ── Listing images (cover + gallery) ─────────────────────────────────────────
 -- Original placeholder URLs; replace with client photos in Phase 3.
 insert into public.listing_images (id, listing_id, url, sort_order, is_cover) values
-  ('e0000000-0000-0000-0000-000000000101', 'd0000000-0000-0000-0000-000000000001', 'https://images.travela.demo/listings/gulshan-1.jpg', 0, true),
-  ('e0000000-0000-0000-0000-000000000102', 'd0000000-0000-0000-0000-000000000001', 'https://images.travela.demo/listings/gulshan-2.jpg', 1, false),
-  ('e0000000-0000-0000-0000-000000000103', 'd0000000-0000-0000-0000-000000000001', 'https://images.travela.demo/listings/gulshan-3.jpg', 2, false),
+  ('e0000000-0000-0000-0000-000000000101', 'd0000000-0000-0000-0000-000000000001', 'https://images.nibash.demo/listings/gulshan-1.jpg', 0, true),
+  ('e0000000-0000-0000-0000-000000000102', 'd0000000-0000-0000-0000-000000000001', 'https://images.nibash.demo/listings/gulshan-2.jpg', 1, false),
+  ('e0000000-0000-0000-0000-000000000103', 'd0000000-0000-0000-0000-000000000001', 'https://images.nibash.demo/listings/gulshan-3.jpg', 2, false),
 
-  ('e0000000-0000-0000-0000-000000000201', 'd0000000-0000-0000-0000-000000000002', 'https://images.travela.demo/listings/dhanmondi-1.jpg', 0, true),
-  ('e0000000-0000-0000-0000-000000000202', 'd0000000-0000-0000-0000-000000000002', 'https://images.travela.demo/listings/dhanmondi-2.jpg', 1, false),
+  ('e0000000-0000-0000-0000-000000000201', 'd0000000-0000-0000-0000-000000000002', 'https://images.nibash.demo/listings/dhanmondi-1.jpg', 0, true),
+  ('e0000000-0000-0000-0000-000000000202', 'd0000000-0000-0000-0000-000000000002', 'https://images.nibash.demo/listings/dhanmondi-2.jpg', 1, false),
 
-  ('e0000000-0000-0000-0000-000000000301', 'd0000000-0000-0000-0000-000000000003', 'https://images.travela.demo/listings/coxs-villa-1.jpg', 0, true),
-  ('e0000000-0000-0000-0000-000000000302', 'd0000000-0000-0000-0000-000000000003', 'https://images.travela.demo/listings/coxs-villa-2.jpg', 1, false),
-  ('e0000000-0000-0000-0000-000000000303', 'd0000000-0000-0000-0000-000000000003', 'https://images.travela.demo/listings/coxs-villa-3.jpg', 2, false),
+  ('e0000000-0000-0000-0000-000000000301', 'd0000000-0000-0000-0000-000000000003', 'https://images.nibash.demo/listings/coxs-villa-1.jpg', 0, true),
+  ('e0000000-0000-0000-0000-000000000302', 'd0000000-0000-0000-0000-000000000003', 'https://images.nibash.demo/listings/coxs-villa-2.jpg', 1, false),
+  ('e0000000-0000-0000-0000-000000000303', 'd0000000-0000-0000-0000-000000000003', 'https://images.nibash.demo/listings/coxs-villa-3.jpg', 2, false),
 
-  ('e0000000-0000-0000-0000-000000000401', 'd0000000-0000-0000-0000-000000000004', 'https://images.travela.demo/listings/sylhet-1.jpg', 0, true),
-  ('e0000000-0000-0000-0000-000000000402', 'd0000000-0000-0000-0000-000000000004', 'https://images.travela.demo/listings/sylhet-2.jpg', 1, false),
+  ('e0000000-0000-0000-0000-000000000401', 'd0000000-0000-0000-0000-000000000004', 'https://images.nibash.demo/listings/sylhet-1.jpg', 0, true),
+  ('e0000000-0000-0000-0000-000000000402', 'd0000000-0000-0000-0000-000000000004', 'https://images.nibash.demo/listings/sylhet-2.jpg', 1, false),
 
-  ('e0000000-0000-0000-0000-000000000501', 'd0000000-0000-0000-0000-000000000005', 'https://images.travela.demo/listings/banani-1.jpg', 0, true),
-  ('e0000000-0000-0000-0000-000000000502', 'd0000000-0000-0000-0000-000000000005', 'https://images.travela.demo/listings/banani-2.jpg', 1, false),
+  ('e0000000-0000-0000-0000-000000000501', 'd0000000-0000-0000-0000-000000000005', 'https://images.nibash.demo/listings/banani-1.jpg', 0, true),
+  ('e0000000-0000-0000-0000-000000000502', 'd0000000-0000-0000-0000-000000000005', 'https://images.nibash.demo/listings/banani-2.jpg', 1, false),
 
-  ('e0000000-0000-0000-0000-000000000601', 'd0000000-0000-0000-0000-000000000006', 'https://images.travela.demo/listings/ctg-gec-1.jpg', 0, true),
-  ('e0000000-0000-0000-0000-000000000602', 'd0000000-0000-0000-0000-000000000006', 'https://images.travela.demo/listings/ctg-gec-2.jpg', 1, false)
+  ('e0000000-0000-0000-0000-000000000601', 'd0000000-0000-0000-0000-000000000006', 'https://images.nibash.demo/listings/ctg-gec-1.jpg', 0, true),
+  ('e0000000-0000-0000-0000-000000000602', 'd0000000-0000-0000-0000-000000000006', 'https://images.nibash.demo/listings/ctg-gec-2.jpg', 1, false)
 on conflict (id) do nothing;
 
 -- ── Listing ↔ amenities ──────────────────────────────────────────────────────
@@ -241,10 +241,10 @@ values
    'A Weekend Guide to Cox''s Bazar', 'weekend-guide-coxs-bazar',
    'Where to stay, what to eat, and how to catch the best sunset on the longest beach.',
    'From Kolatoli to Inani, here is how to spend two unhurried days by the Bay of Bengal...',
-   'Travel Tips', 'Travela Editorial', 6, 'published', now()),
+   'Travel Tips', 'Nibash Editorial', 6, 'published', now()),
   ('f0000000-0000-0000-0000-000000000002',
    'Hosting 101: Setting Up Your First Stay', 'hosting-101-first-stay',
    'Simple steps to turn a spare room or flat into a welcoming, bookable space.',
    'Great hosting starts before the first guest arrives. Here is a practical checklist...',
-   'Hosting', 'Travela Editorial', 5, 'published', now())
+   'Hosting', 'Nibash Editorial', 5, 'published', now())
 on conflict (id) do nothing;

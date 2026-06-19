@@ -13,7 +13,7 @@ import { useState, useTransition } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { loginInputSchema, type LoginInput } from '@travela/shared';
+import { loginInputSchema, type LoginInput } from '@nibash/shared';
 import { Button, Input } from '@/components/ui';
 import { loginAction } from '../actions.js';
 import { GoogleButton } from './GoogleButton.js';

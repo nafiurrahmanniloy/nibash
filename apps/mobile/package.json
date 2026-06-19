@@ -1,8 +1,8 @@
 {
-  "name": "@travela/mobile",
+  "name": "@nibash/mobile",
   "version": "0.1.0",
   "private": true,
-  "description": "Travela Stay Platform — Expo (React Native) app. Consumes @travela/shared and mirrors the bottom-nav UX (Explore / Booking / Inbox / Alerts / Profile).",
+  "description": "Nibash Stay Platform — Expo (React Native) app. Consumes @nibash/shared and mirrors the bottom-nav UX (Explore / Booking / Inbox / Alerts / Profile).",
   "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
@@ -13,7 +13,7 @@
     "lint": "expo lint"
   },
   "dependencies": {
-    "@travela/shared": "workspace:*",
+    "@nibash/shared": "workspace:*",
     "@supabase/supabase-js": "^2.45.0",
     "expo": "~51.0.0",
     "expo-constants": "~16.0.0",

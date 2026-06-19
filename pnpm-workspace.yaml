@@ -1,6 +1,6 @@
 # pnpm workspace definition for the Turborepo monorepo.
 # apps/*     → web (Next.js), mobile (Expo)
-# packages/* → shared (@travela/shared: types, zod schemas, supabase client, design tokens)
+# packages/* → shared (@nibash/shared: types, zod schemas, supabase client, design tokens)
 packages:
   - "apps/*"
   - "packages/*"

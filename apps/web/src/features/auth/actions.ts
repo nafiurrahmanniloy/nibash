@@ -14,7 +14,7 @@ import {
   err,
   type AuthUserDTO,
   type Result,
-} from '@travela/shared';
+} from '@nibash/shared';
 import { zodToApiError } from '@/lib/errors';
 import * as service from './auth.service.js';
 

@@ -6,7 +6,7 @@
  * states via ui/Button. Verified state is conveyed by text + icon, not color alone
  * (WCAG 1.4.1).
  */
-import type { ListingHostDTO } from '@travela/shared';
+import type { ListingHostDTO } from '@nibash/shared';
 import { Avatar, Button } from '@/components/ui';
 
 export interface HostCardProps {

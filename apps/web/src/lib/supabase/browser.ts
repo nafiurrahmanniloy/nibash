@@ -7,7 +7,7 @@
  * this; services never import it.
  */
 import { createBrowserClient } from '@supabase/ssr';
-import type { Database } from '@travela/shared';
+import type { Database } from '@nibash/shared';
 import { clientEnv } from '../env.js';
 
 let cached: ReturnType<typeof createBrowserClient<Database>> | undefined;

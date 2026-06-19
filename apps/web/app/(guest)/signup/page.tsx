@@ -22,7 +22,7 @@ export default function SignupPage() {
         Create your account
       </h1>
       <p className="mt-1 text-sm text-content-secondary">
-        Join Travela to book stays across Bangladesh.
+        Join Nibash to book stays across Bangladesh.
       </p>
 
       {/* SignupForm already renders the fields, the divider, and the Google OAuth

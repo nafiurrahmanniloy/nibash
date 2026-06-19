@@ -1,10 +1,10 @@
-# supabase/config.toml — minimal local config for the Travela Stay Platform.
+# supabase/config.toml — minimal local config for the Nibash Stay Platform.
 # Drives `supabase start` (local Postgres + Auth + Storage + Realtime) and
 # `supabase db reset` (runs migrations/ in lexical order, then seed/seed.sql).
 # Production project settings live in the Supabase dashboard, not here.
 
 # Project ref used by the local CLI. Change to your real ref when linking.
-project_id = "travela-stay"
+project_id = "nibash-stay"
 
 [api]
 enabled = true

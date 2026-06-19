@@ -1,8 +1,8 @@
 {
-  "name": "travela-stay-platform",
+  "name": "nibash-stay-platform",
   "version": "0.0.0",
   "private": true,
-  "description": "Short-term stay booking platform (Travela-style) — Turborepo monorepo: web (Next.js), mobile (Expo), shared package.",
+  "description": "Short-term stay booking platform (Nibash-style) — Turborepo monorepo: web (Next.js), mobile (Expo), shared package.",
   "packageManager": "pnpm@9.12.3",
   "engines": {
     "node": ">=20.0.0",

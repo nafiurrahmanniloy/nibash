@@ -20,7 +20,7 @@ import type {
   BookingStatus,
   BookingStatusHistory,
   Listing,
-} from '@travela/shared';
+} from '@nibash/shared';
 import { randomUUID } from 'node:crypto';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { getAdminSupabase } from '@/lib/supabase/admin';

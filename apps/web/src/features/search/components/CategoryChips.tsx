@@ -9,7 +9,7 @@
  *
  * Categories come from the shared listingCategorySchema enum — one source of truth.
  */
-import { listingCategorySchema, type ListingCategory } from '@travela/shared';
+import { listingCategorySchema, type ListingCategory } from '@nibash/shared';
 import { Chip } from '@/components/ui';
 
 export interface CategoryChipsProps {

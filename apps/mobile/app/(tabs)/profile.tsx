@@ -6,7 +6,7 @@
  * auth phase is wired through the auth feature repository.
  */
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import type { UserRole } from '@travela/shared/types';
+import type { UserRole } from '@nibash/shared/types';
 import { ScreenScaffold } from '@/components/ScreenScaffold';
 import { theme } from '@/theme/theme';
 
@@ -24,7 +24,7 @@ export default function ProfileScreen() {
       subtitle="Sign in to manage your stays, messages, and account."
     >
       <View style={styles.card}>
-        <Text style={styles.cardTitle}>Welcome to Travela</Text>
+        <Text style={styles.cardTitle}>Welcome to Nibash</Text>
         <Text style={styles.cardBody}>{ROLE_BLURB.guest}</Text>
 
         <Pressable

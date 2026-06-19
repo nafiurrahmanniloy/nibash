@@ -11,7 +11,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import {
   listingCategorySchema,
   type ListingCategory,
-} from '@travela/shared';
+} from '@nibash/shared';
 import { CategoryChips } from '@/features/search/components/CategoryChips';
 
 export function HomeCategoryChips() {

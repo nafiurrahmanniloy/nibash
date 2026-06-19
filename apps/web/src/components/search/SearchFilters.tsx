@@ -9,7 +9,7 @@
  * are seeded from the already-validated SearchParams passed by the server page.
  */
 import { useRouter, useSearchParams } from 'next/navigation';
-import type { SearchParams } from '@travela/shared';
+import type { SearchParams } from '@nibash/shared';
 import { Filters, type FilterValues } from '@/features/search/components/Filters';
 
 export interface SearchFiltersProps {

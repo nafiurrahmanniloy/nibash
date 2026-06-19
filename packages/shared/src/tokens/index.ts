@@ -1,6 +1,6 @@
 /**
  * tokens/index.ts — barrel for the design-token layer.
- * CSS variables live in ./css-variables.css (import via "@travela/shared/tokens/css-variables.css").
+ * CSS variables live in ./css-variables.css (import via "@nibash/shared/tokens/css-variables.css").
  */
 export {
   tokens,
@@ -16,5 +16,5 @@ export {
 } from './tokens.js';
 export type { Tokens, SemanticColor } from './tokens.js';
 
-export { travelaPreset, default as tailwindPreset } from './tailwind-preset.js';
+export { nibashPreset, default as tailwindPreset } from './tailwind-preset.js';
 export type { TailwindPreset } from './tailwind-preset.js';

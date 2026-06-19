@@ -38,7 +38,7 @@ export async function Nav() {
             focusRing,
           )}
         >
-          Travela
+          Nibash
         </Link>
 
         {/* Search entry — links into the discovery surface */}

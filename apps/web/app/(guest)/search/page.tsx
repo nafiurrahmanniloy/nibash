@@ -7,7 +7,7 @@
  * the query.
  */
 import type { Metadata } from 'next';
-import { searchParamsSchema, type SearchParams } from '@travela/shared';
+import { searchParamsSchema, type SearchParams } from '@nibash/shared';
 import { searchListings, ListingGrid } from '@/features/search';
 import { SearchFilters } from '@/components/search/SearchFilters';
 

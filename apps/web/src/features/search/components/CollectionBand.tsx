@@ -8,7 +8,7 @@
  *              guard here too so it never shows an empty header)
  * Horizontal overflow scrolls (never silent cut); each card has a fixed min width.
  */
-import type { ListingCardDTO } from '@travela/shared';
+import type { ListingCardDTO } from '@nibash/shared';
 import { ListingCard, ListingCardSkeleton } from '@/features/listings';
 
 export interface CollectionBandProps {

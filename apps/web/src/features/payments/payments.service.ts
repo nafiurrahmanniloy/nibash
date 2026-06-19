@@ -12,7 +12,7 @@
  *     touches the bookings tables.
  */
 import { randomUUID } from 'node:crypto';
-import { err, ok, type Json, type Result } from '@travela/shared';
+import { err, ok, type Json, type Result } from '@nibash/shared';
 import { toApiError } from '@/lib/errors';
 import { serverEnv } from '@/lib/env';
 import { logger } from '@/lib/logger';

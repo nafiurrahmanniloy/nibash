@@ -1,9 +1,9 @@
 {
-  "name": "@travela/shared",
+  "name": "@nibash/shared",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Cross-platform contract layer (types, zod schemas, design tokens, supabase types, api helpers) shared by @travela web and mobile.",
+  "description": "Cross-platform contract layer (types, zod schemas, design tokens, supabase types, api helpers) shared by @nibash web and mobile.",
   "main": "./src/index.ts",
   "module": "./src/index.ts",
   "types": "./src/index.ts",

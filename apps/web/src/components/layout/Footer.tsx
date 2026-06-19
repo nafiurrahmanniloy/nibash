@@ -46,7 +46,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-8 md:px-6">
         <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
-            <p className="font-display text-lg font-bold text-brand">Travela</p>
+            <p className="font-display text-lg font-bold text-brand">Nibash</p>
             <p className="mt-2 text-sm text-content-secondary">
               Short stays across Bangladesh. Request, pay, and stay with confidence.
             </p>
@@ -75,7 +75,7 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-8 flex flex-col gap-2 border-t border-line-default pt-6 text-sm text-content-muted md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} Travela. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Nibash. All rights reserved.</p>
           <p>Prices in BDT (৳) · Asia/Dhaka</p>
         </div>
       </div>

@@ -17,7 +17,7 @@
  *  - error:   handled by the parent list (empty/error state), not the card
  */
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
-import type { ListingCardDTO } from '@travela/shared/schemas';
+import type { ListingCardDTO } from '@nibash/shared/schemas';
 import { formatBdt } from '@/lib/money';
 import { theme } from '@/theme/theme';
 

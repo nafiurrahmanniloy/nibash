@@ -34,7 +34,7 @@ export default function LoginPage() {
       </div>
 
       <p className="mt-8 text-sm text-content-secondary">
-        New to Travela?{' '}
+        New to Nibash?{' '}
         <Link href="/signup" className={cn(linkClass)}>
           Create an account
         </Link>

@@ -8,7 +8,7 @@
  */
 import { cookies } from 'next/headers';
 import { createServerClient } from '@supabase/ssr';
-import type { Database } from '@travela/shared';
+import type { Database } from '@nibash/shared';
 import { clientEnv } from '../env.js';
 
 /**

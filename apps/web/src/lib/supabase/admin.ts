@@ -7,7 +7,7 @@
  * a client import fail the build. Memoized per server process.
  */
 import 'server-only';
-import { createServiceRoleClient, type TypedSupabaseClient } from '@travela/shared';
+import { createServiceRoleClient, type TypedSupabaseClient } from '@nibash/shared';
 import { clientEnv, serverEnv } from '../env.js';
 
 let cached: TypedSupabaseClient | undefined;

@@ -12,8 +12,8 @@
     "declarationMap": false,
     "types": ["expo", "react", "react-native"],
     "paths": {
-      "@travela/shared": ["../../packages/shared/src/index.ts"],
-      "@travela/shared/*": ["../../packages/shared/src/*"],
+      "@nibash/shared": ["../../packages/shared/src/index.ts"],
+      "@nibash/shared/*": ["../../packages/shared/src/*"],
       "@/*": ["./src/*"]
     }
   },

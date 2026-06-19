@@ -15,15 +15,15 @@ import type {
   Collection,
   ListingImage,
   Profile,
-} from '@travela/shared';
+} from '@nibash/shared';
 import type { PublicListingRow } from '@/features/listings/listings.repository';
 import type { SearchFilters, SearchResultRows } from '@/features/search/search.repository';
 
 /** Build a syntactically-valid UUID from a short numeric tag (stable across runs). */
 const uid = (tag: string) => `00000000-0000-4000-8000-${tag.padStart(12, '0')}`;
 const img = (seed: string, i: number) =>
-  `https://picsum.photos/seed/travela-${seed}-${i}/1024/768`;
-const avatar = (seed: string) => `https://picsum.photos/seed/travela-host-${seed}/240/240`;
+  `https://picsum.photos/seed/nibash-${seed}-${i}/1024/768`;
+const avatar = (seed: string) => `https://picsum.photos/seed/nibash-host-${seed}/240/240`;
 
 const T = '2026-06-10T09:00:00.000Z';
 

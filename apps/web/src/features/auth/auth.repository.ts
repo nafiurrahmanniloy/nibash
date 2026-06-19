@@ -9,7 +9,7 @@
  * The service maps these raw rows → the Profile/AuthUser DTO; this layer never
  * shapes client responses.
  */
-import type { Profile, UserRole } from '@travela/shared';
+import type { Profile, UserRole } from '@nibash/shared';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { RepositoryError } from '@/lib/errors';
 import { DEMO_MODE } from '@/lib/demo/flag';
@@ -81,7 +81,7 @@ export async function signInWithPassword(
  */
 export async function signInWithOAuthGoogle(redirectTo: string): Promise<{ url: string }> {
   if (DEMO_MODE) {
-    await setDemoSession('demo.google@travela.xyz');
+    await setDemoSession('demo.google@nibash.xyz');
     return { url: '/' };
   }
   const supabase = await createServerSupabase();

@@ -13,11 +13,11 @@ type Params = { doc: string };
 const DOCS: Record<string, { title: string; intro: string }> = {
   terms: {
     title: 'Terms of Service',
-    intro: 'The terms that govern your use of Travela as a guest or host.',
+    intro: 'The terms that govern your use of Nibash as a guest or host.',
   },
   privacy: {
     title: 'Privacy Policy',
-    intro: 'How Travela collects, uses, and protects your personal data.',
+    intro: 'How Nibash collects, uses, and protects your personal data.',
   },
   cancellation: {
     title: 'Cancellation Policy',

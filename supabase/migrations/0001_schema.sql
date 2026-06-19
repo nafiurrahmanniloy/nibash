@@ -1,5 +1,5 @@
 -- ============================================================================
--- 0001_schema.sql — Core schema for the Travela Stay Platform (BUILD-PLAN §3)
+-- 0001_schema.sql — Core schema for the Nibash Stay Platform (BUILD-PLAN §3)
 -- ----------------------------------------------------------------------------
 -- Translates the §3 data model into Postgres for Supabase:
 --   * enums for every closed value set

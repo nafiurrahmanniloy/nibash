@@ -33,7 +33,7 @@ import {
   type BookingStatusValue,
   type CreateBookingInput,
   type Result,
-} from '@travela/shared';
+} from '@nibash/shared';
 import { toApiError } from '@/lib/errors';
 import * as repo from './bookings.repository.js';
 import { priceBooking, nightsBetween } from './bookings.pricing.js';

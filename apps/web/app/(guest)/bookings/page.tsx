@@ -8,7 +8,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-import type { BookingDTO, BookingStatusValue } from '@travela/shared';
+import type { BookingDTO, BookingStatusValue } from '@nibash/shared';
 import { getCurrentUser } from '@/features/auth';
 import { listMyBookings } from '@/features/bookings';
 import { Badge, Card } from '@/components/ui';

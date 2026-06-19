@@ -10,7 +10,7 @@
  * app/api/payments/ipn/route.ts, which calls payments.service.handleIpn directly.
  */
 import { z } from 'zod';
-import { err, type Result } from '@travela/shared';
+import { err, type Result } from '@nibash/shared';
 import { zodToApiError } from '@/lib/errors';
 import { getCurrentUser } from '@/features/auth';
 import { createPaymentSession, type PaymentSession } from './payments.service.js';

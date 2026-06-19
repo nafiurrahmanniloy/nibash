@@ -10,7 +10,7 @@ import {
   type ListingCardDTO,
   type Paginated,
   type Result,
-} from '@travela/shared';
+} from '@nibash/shared';
 import { zodToApiError } from '@/lib/errors';
 import * as service from './search.service.js';
 import type { CollectionBandDTO } from './search.service.js';

@@ -7,7 +7,7 @@
  * (aria-hidden); the amenity name carries the meaning.
  */
 import Image from 'next/image';
-import type { AmenityDTO } from '@travela/shared';
+import type { AmenityDTO } from '@nibash/shared';
 
 export interface AmenityListProps {
   amenities: AmenityDTO[];

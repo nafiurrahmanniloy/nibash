@@ -8,7 +8,7 @@
  * to the empty filter state and is a descriptive, non-ambiguous label.
  */
 import { useState } from 'react';
-import { placeTypeSchema, type PlaceType } from '@travela/shared';
+import { placeTypeSchema, type PlaceType } from '@nibash/shared';
 import { Button, Chip, Input } from '@/components/ui';
 
 export interface FilterValues {

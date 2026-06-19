@@ -13,7 +13,7 @@
  */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import type { Booking } from '@travela/shared';
+import type { Booking } from '@nibash/shared';
 
 // Mock the repository BEFORE importing the service (node:test module mocking).
 import { mock } from 'node:test';

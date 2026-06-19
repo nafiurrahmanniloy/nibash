@@ -10,7 +10,7 @@
  * ring (design.md §6 acceptance criterion 2) plus prefers-reduced-motion handling
  * (acceptance criterion 7).
  */
-@import '@travela/shared/tokens/css-variables.css';
+@import '@nibash/shared/tokens/css-variables.css';
 
 @layer base {
   html {

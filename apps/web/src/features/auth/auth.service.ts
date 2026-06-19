@@ -17,7 +17,7 @@ import {
   type Profile,
   type Result,
   type SignupInput,
-} from '@travela/shared';
+} from '@nibash/shared';
 import { clientEnv } from '@/lib/env';
 import { toApiError } from '@/lib/errors';
 import * as repo from './auth.repository.js';

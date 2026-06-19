@@ -13,7 +13,7 @@
  *    bundled into the device app.
  */
 import 'react-native-url-polyfill/auto';
-import { createAnonClient, type TypedSupabaseClient } from '@travela/shared/supabase';
+import { createAnonClient, type TypedSupabaseClient } from '@nibash/shared/supabase';
 import { env } from './env';
 
 /**

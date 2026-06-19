@@ -15,7 +15,7 @@ import {
   err,
   type BookingDTO,
   type Result,
-} from '@travela/shared';
+} from '@nibash/shared';
 import { zodToApiError } from '@/lib/errors';
 import { getCurrentUser } from '@/features/auth';
 import * as service from './bookings.service.js';

@@ -1,9 +1,9 @@
 /**
  * metro.config.js — Metro bundler config for an Expo app inside a pnpm/Turborepo.
  *
- * In a monorepo, Metro must (1) watch the repo root so changes to @travela/shared are
+ * In a monorepo, Metro must (1) watch the repo root so changes to @nibash/shared are
  * picked up, and (2) resolve modules from both the app's and the root node_modules.
- * This is the standard Expo monorepo recipe; without it, `@travela/shared` (a
+ * This is the standard Expo monorepo recipe; without it, `@nibash/shared` (a
  * workspace dependency) won't resolve. No app logic here — purely build wiring.
  */
 const { getDefaultConfig } = require('expo/metro-config');

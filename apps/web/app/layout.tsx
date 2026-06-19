@@ -29,8 +29,8 @@ const bricolage = Bricolage_Grotesque({
 export const metadata: Metadata = {
   metadataBase: new URL(clientEnv.NEXT_PUBLIC_SITE_URL),
   title: {
-    default: 'Travela — Short stays across Bangladesh',
-    template: '%s · Travela',
+    default: 'Nibash — Short stays across Bangladesh',
+    template: '%s · Nibash',
   },
   description:
     'Find and book apartments, rooms, villas, and resorts across Bangladesh. Request to book, pay securely, stay confidently.',

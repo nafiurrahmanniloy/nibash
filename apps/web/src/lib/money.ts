@@ -4,7 +4,7 @@
  * that renders them with the ৳ symbol, English thousands separators, and Asia/Dhaka
  * assumptions. Components never hand-roll currency strings.
  */
-import { CURRENCY } from '@travela/shared';
+import { CURRENCY } from '@nibash/shared';
 
 const TAKA_SYMBOL = '৳';
 

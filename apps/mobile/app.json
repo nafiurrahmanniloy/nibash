@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "Travela",
-    "slug": "travela-stay",
+    "name": "Nibash",
+    "slug": "nibash-stay",
     "version": "0.1.0",
     "orientation": "portrait",
-    "scheme": "travela",
+    "scheme": "nibash",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
@@ -14,10 +14,10 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.travela.stay"
+      "bundleIdentifier": "com.nibash.stay"
     },
     "android": {
-      "package": "com.travela.stay",
+      "package": "com.nibash.stay",
       "adaptiveIcon": {
         "backgroundColor": "#0E5C4A"
       }

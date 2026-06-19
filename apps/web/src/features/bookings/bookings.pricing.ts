@@ -5,7 +5,7 @@
  * BookingWidget preview and the server-side booking creation agree to the taka.
  * BDT whole-taka integers only (common.schema money rule).
  */
-import { priceBreakdownSchema, type PriceBreakdown } from '@travela/shared';
+import { priceBreakdownSchema, type PriceBreakdown } from '@nibash/shared';
 
 /** Platform service fee: 10% of base, rounded to whole taka. Tune in one place. */
 export const SERVICE_FEE_RATE = 0.1;

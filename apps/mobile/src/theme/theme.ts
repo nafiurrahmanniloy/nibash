@@ -1,16 +1,16 @@
 /**
- * theme.ts — native bridge to the @travela/shared design tokens.
+ * theme.ts — native bridge to the @nibash/shared design tokens.
  *
  * React Native can't consume the Tailwind preset (no className), so this file is the
  * RN equivalent of the token seam: it re-exports the SEMANTIC layer from
- * @travela/shared so screens reference `theme.color.surface.base` etc. — never a raw
+ * @nibash/shared so screens reference `theme.color.surface.base` etc. — never a raw
  * hex, never a primitive (design.md §2.2 / §7). Web (Tailwind classes) and mobile
  * (this object) therefore derive from the same single source of truth.
  *
  * Spacing/radius/typography values are taken straight from the shared scale; RN wants
  * numbers, so px strings are converted once here.
  */
-import { color, radius, spacing, typography } from '@travela/shared/tokens';
+import { color, radius, spacing, typography } from '@nibash/shared/tokens';
 
 /** Strip a `"12px"` token to the number RN style props expect. */
 const px = (value: string): number => Number.parseFloat(value);

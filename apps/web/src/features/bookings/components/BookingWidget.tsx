@@ -16,7 +16,7 @@
  * the persisted booking agree to the taka. Submit calls the requestBooking action.
  */
 import { useId, useMemo, useState, useTransition } from 'react';
-import type { PriceBreakdown } from '@travela/shared';
+import type { PriceBreakdown } from '@nibash/shared';
 import { Button, Input } from '@/components/ui';
 import { formatBdt } from '@/lib/money';
 import { requestBooking } from '../actions.js';

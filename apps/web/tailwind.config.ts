@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss';
-import { travelaPreset } from '@travela/shared/tokens/tailwind-preset';
+import { nibashPreset } from '@nibash/shared/tokens/tailwind-preset';
 
 /**
  * tailwind.config.ts — web Tailwind config.
@@ -8,7 +8,7 @@ import { travelaPreset } from '@travela/shared/tokens/tailwind-preset';
  * the font families so `font-body` / `font-display` resolve to the loaded fonts.
  */
 const config: Config = {
-  presets: [travelaPreset as unknown as Partial<Config>],
+  presets: [nibashPreset as unknown as Partial<Config>],
   content: [
     './app/**/*.{ts,tsx}',
     './src/components/**/*.{ts,tsx}',

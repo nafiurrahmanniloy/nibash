@@ -1,10 +1,10 @@
 # design.md — Stay Platform Design System
 
-> **Source of truth for Phase 0 tokens.** Original brand identity (not Travela's visual
-> skin), governed by Travela's structural discipline: semantic tokens only, every component
+> **Source of truth for Phase 0 tokens.** Original brand identity (not Nibash's visual
+> skin), governed by Nibash's structural discipline: semantic tokens only, every component
 > defines all seven states, WCAG 2.2 AA is non-negotiable, no one-off spacing or type.
 >
-> Reconciles `BUILD-PLAN-stay-platform.md` §2 (visual identity) with the Travela `Design.imd`
+> Reconciles `BUILD-PLAN-stay-platform.md` §2 (visual identity) with the Nibash `Design.imd`
 > rules (token discipline, state matrix, a11y acceptance criteria, motion/spacing scales).
 
 ---

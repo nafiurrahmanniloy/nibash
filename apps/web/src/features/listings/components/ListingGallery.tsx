@@ -14,7 +14,7 @@
  */
 import { useState } from 'react';
 import Image from 'next/image';
-import type { ListingImageDTO } from '@travela/shared';
+import type { ListingImageDTO } from '@nibash/shared';
 import { cn } from '@/lib/cn';
 
 export interface ListingGalleryProps {

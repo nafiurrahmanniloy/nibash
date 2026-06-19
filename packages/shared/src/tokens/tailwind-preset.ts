@@ -2,7 +2,7 @@
  * tailwind-preset.ts — the shared Tailwind preset that produces the EXACT token
  * class names used across web and mobile (nativewind).
  *
- * Consumed via: `presets: [travelaPreset]` in each app's tailwind.config.
+ * Consumed via: `presets: [nibashPreset]` in each app's tailwind.config.
  *
  * The color/radius/shadow/font keys below are chosen so Tailwind emits precisely:
  *   bg-surface-base bg-surface-raised bg-surface-subtle bg-brand bg-brand-hover
@@ -43,7 +43,7 @@ export interface TailwindPreset {
 const fontStack = (value: string): string[] =>
   value.split(',').map((part) => part.trim().replace(/^["']|["']$/g, ''));
 
-export const travelaPreset: TailwindPreset = {
+export const nibashPreset: TailwindPreset = {
   theme: {
     extend: {
       colors: {
@@ -144,4 +144,4 @@ export const travelaPreset: TailwindPreset = {
   },
 };
 
-export default travelaPreset;
+export default nibashPreset;

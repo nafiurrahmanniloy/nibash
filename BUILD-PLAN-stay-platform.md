@@ -1,4 +1,4 @@
-# Build Plan — Short-Term Stay Booking Platform (Travela-style)
+# Build Plan — Short-Term Stay Booking Platform (Nibash-style)
 ### Claude Code execution spec · Web + Android
 
 This is the master plan to hand to Claude Code. Build **phase by phase** — give Claude Code one phase at a time, verify the acceptance criteria, commit, then move on. Don't paste the whole file as one prompt.
@@ -7,7 +7,7 @@ This is the master plan to hand to Claude Code. Build **phase by phase** — giv
 
 ## 0. Principles
 
-- **Functional clone, original assets.** Replicate features/UX from Travela; generate original copy, use the client's brand and the client's real listings. Reference only — never ship scraped content, photos, or brand.
+- **Functional clone, original assets.** Replicate features/UX from Nibash; generate original copy, use the client's brand and the client's real listings. Reference only — never ship scraped content, photos, or brand.
 - **MVP-first, Android-first.** Ship a usable web product, then full web, then the app. iOS later.
 - **Request-to-book** model (guest requests → host approves → pay → confirmed).
 - **One gateway for v1:** SSLCommerz (covers cards + bKash + Nagad + bank).
@@ -45,7 +45,7 @@ supabase/
 
 ## 2. Design system (`design.md` baseline — original, from the demo)
 
-Use these tokens instead of copying Travela's visual identity. Swap the palette later for the client's brand.
+Use these tokens instead of copying Nibash's visual identity. Swap the palette later for the client's brand.
 
 ```
 --bg:#F6F4EF  --ink:#16201C  --primary:#0E5C4A  --primary-d:#0A4537

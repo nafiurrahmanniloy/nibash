@@ -9,7 +9,7 @@
  */
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import type { ListingCardDTO } from '@travela/shared/schemas';
+import type { ListingCardDTO } from '@nibash/shared/schemas';
 import { ListingCard } from '@/components/ListingCard';
 import { theme } from '@/theme/theme';
 

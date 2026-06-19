@@ -32,7 +32,7 @@ if (supabaseHost) {
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  transpilePackages: ['@travela/shared'],
+  transpilePackages: ['@nibash/shared'],
   images: { remotePatterns },
   // typedRoutes graduated out of `experimental` in Next 15.
   typedRoutes: true,

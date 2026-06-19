@@ -7,7 +7,7 @@
  * mobile equivalent, typed against the shared `Money` type and fixed `CURRENCY` so
  * both platforms agree on the amount contract.
  */
-import { CURRENCY, type Money } from '@travela/shared/schemas';
+import { CURRENCY, type Money } from '@nibash/shared/schemas';
 
 const bdtFormatter = new Intl.NumberFormat('en-US', {
   maximumFractionDigits: 0,
