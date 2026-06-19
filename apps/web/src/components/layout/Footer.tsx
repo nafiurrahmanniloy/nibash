@@ -17,17 +17,20 @@ type FooterColumn = { heading: string; links: FooterLink[] };
 
 const COLUMNS: FooterColumn[] = [
   {
-    heading: 'Explore',
+    heading: 'Stays',
     links: [
-      { label: 'Search stays', href: '/search' },
-      { label: 'Blog', href: '/blog' },
+      { label: 'Apartments', href: '/apartments' },
+      { label: 'Rooms', href: '/rooms/dhaka' },
+      { label: 'Hotels', href: '/hotels/dhaka' },
+      { label: 'Popular locations', href: '/popular-locations' },
     ],
   },
   {
-    heading: 'Hosting',
+    heading: 'Company',
     links: [
+      { label: 'About', href: '/about' },
+      { label: 'Blog', href: '/blogs' },
       { label: 'Become a host', href: '/dashboard' },
-      { label: 'Host resources', href: '/blog' },
     ],
   },
   {
@@ -40,6 +43,14 @@ const COLUMNS: FooterColumn[] = [
   },
 ];
 
+const SOCIALS: FooterLink[] = [
+  { label: 'Facebook', href: 'https://facebook.com' },
+  { label: 'Instagram', href: 'https://instagram.com' },
+  { label: 'TikTok', href: 'https://tiktok.com' },
+  { label: 'LinkedIn', href: 'https://linkedin.com' },
+  { label: 'YouTube', href: 'https://youtube.com' },
+];
+
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-line-default bg-surface-raised">
@@ -50,6 +61,23 @@ export function Footer() {
             <p className="mt-2 text-sm text-content-secondary">
               Short stays across Bangladesh. Request, pay, and stay with confidence.
             </p>
+            <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
+              {SOCIALS.map((s) => (
+                <li key={s.label}>
+                  <a
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      'text-sm text-content-muted transition-colors duration-instant hover:text-content-primary',
+                      focusRing,
+                    )}
+                  >
+                    {s.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
           {COLUMNS.map((column) => (
             <nav key={column.heading} aria-label={column.heading}>

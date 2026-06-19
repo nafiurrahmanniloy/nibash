@@ -15,6 +15,7 @@ import { Search, Menu } from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button-variants';
 import { cn } from '@/lib/cn';
 import { getCurrentUser, LogoutButton } from '@/features/auth';
+import { NAV_CATEGORY_SLUGS, CATEGORY_BY_SLUG, CATEGORY_LABEL } from '@/lib/categories';
 
 const focusRing =
   'rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2';
@@ -40,6 +41,22 @@ export async function Nav() {
         >
           Nibash
         </Link>
+
+        {/* Browse by type (mirrors the real header: Apartments · Rooms · Hotels) */}
+        <div className="hidden items-center gap-1 lg:flex">
+          {NAV_CATEGORY_SLUGS.map((slug) => (
+            <Link
+              key={slug}
+              href={`/${slug}`}
+              className={cn(
+                'rounded-pill px-3 py-2 text-sm font-medium text-content-primary transition-colors duration-instant hover:bg-surface-subtle',
+                focusRing,
+              )}
+            >
+              {CATEGORY_LABEL[CATEGORY_BY_SLUG[slug]].many}
+            </Link>
+          ))}
+        </div>
 
         {/* Search entry — links into the discovery surface */}
         <Link
