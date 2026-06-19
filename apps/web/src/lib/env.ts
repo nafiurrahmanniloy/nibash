@@ -24,6 +24,9 @@ const clientSchema = z.object({
   NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
   NEXT_PUBLIC_SITE_URL: z.string().url(),
   NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: z.string().min(1),
+  // When true, repositories serve in-memory demo fixtures instead of querying
+  // Supabase (lib/demo). Lets the app run with no backend. Defaults to off.
+  NEXT_PUBLIC_DEMO_MODE: booleanEnv.optional(),
 });
 
 /* ── Server-only env (secrets) ───────────────────────────────────────────────── */
@@ -64,6 +67,7 @@ function loadClientEnv(): ClientEnv {
     NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
     NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+    NEXT_PUBLIC_DEMO_MODE: process.env.NEXT_PUBLIC_DEMO_MODE,
   });
   if (!parsed.success) formatIssues('public', parsed.error);
   return parsed.data;

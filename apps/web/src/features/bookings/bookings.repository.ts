@@ -21,9 +21,15 @@ import type {
   BookingStatusHistory,
   Listing,
 } from '@travela/shared';
+import { randomUUID } from 'node:crypto';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { getAdminSupabase } from '@/lib/supabase/admin';
 import { RepositoryError } from '@/lib/errors';
+import { DEMO_MODE } from '@/lib/demo/flag';
+import * as demo from '@/lib/demo/data';
+
+/** Fixed timestamp helper for demo rows (no Date.now needed for correctness). */
+const DEMO_TS = '2026-06-20T09:00:00.000Z';
 
 const BOOKING_COLUMNS =
   'id, listing_id, guest_id, host_id, check_in, check_out, guests, nights, base_amount, service_fee, total_amount, status, special_request, payment_id, created_at, updated_at';
@@ -42,6 +48,7 @@ export interface BookingListingPricing {
 export async function getListingForBooking(
   listingId: string,
 ): Promise<BookingListingPricing | null> {
+  if (DEMO_MODE) return demo.demoListingForBooking(listingId);
   const supabase = await createServerSupabase();
   const { data, error } = await supabase
     .from('listings')
@@ -62,6 +69,7 @@ export async function checkOverlap(
   checkIn: string,
   checkOut: string,
 ): Promise<boolean> {
+  if (DEMO_MODE) return false; // every demo listing is available
   const supabase = await createServerSupabase();
 
   const [blocks, bookings] = await Promise.all([
@@ -105,6 +113,16 @@ export interface CreateBookingRow {
 
 /** Insert a new `requested` booking and return the persisted row. */
 export async function createBooking(row: CreateBookingRow): Promise<Booking> {
+  if (DEMO_MODE) {
+    return {
+      id: randomUUID(),
+      ...row,
+      status: 'requested',
+      payment_id: null,
+      created_at: DEMO_TS,
+      updated_at: DEMO_TS,
+    };
+  }
   const supabase = await createServerSupabase();
   const { data, error } = await supabase
     .from('bookings')
@@ -117,6 +135,7 @@ export async function createBooking(row: CreateBookingRow): Promise<Booking> {
 
 /** Fetch a single booking by id (RLS scopes who can see it). */
 export async function getBooking(bookingId: string): Promise<Booking | null> {
+  if (DEMO_MODE) return demo.demoBookingById(bookingId);
   const supabase = await createServerSupabase();
   const { data, error } = await supabase
     .from('bookings')
@@ -132,6 +151,11 @@ export async function updateBookingStatus(
   bookingId: string,
   status: BookingStatus,
 ): Promise<Booking> {
+  if (DEMO_MODE) {
+    const booking = demo.demoBookingById(bookingId);
+    if (!booking) throw new RepositoryError('Demo booking not found');
+    return { ...booking, status, updated_at: DEMO_TS };
+  }
   const supabase = await createServerSupabase();
   const { data, error } = await supabase
     .from('bookings')
@@ -155,6 +179,7 @@ export interface StatusHistoryRow {
 export async function insertStatusHistory(
   row: StatusHistoryRow,
 ): Promise<BookingStatusHistory> {
+  if (DEMO_MODE) return { id: randomUUID(), ...row, created_at: DEMO_TS };
   const supabase = await createServerSupabase();
   const { data, error } = await supabase
     .from('booking_status_history')
@@ -176,6 +201,7 @@ export interface AvailabilityBlockRow {
 export async function insertAvailabilityBlock(
   row: AvailabilityBlockRow,
 ): Promise<AvailabilityBlock> {
+  if (DEMO_MODE) return { id: randomUUID(), ...row, created_at: DEMO_TS };
   const supabase = await createServerSupabase();
   const { data, error } = await supabase
     .from('availability_blocks')
@@ -188,6 +214,7 @@ export async function insertAvailabilityBlock(
 
 /** Bookings belonging to a guest, newest first. */
 export async function listGuestBookings(guestId: string): Promise<Booking[]> {
+  if (DEMO_MODE) return demo.demoBookingsForGuest(guestId);
   const supabase = await createServerSupabase();
   const { data, error } = await supabase
     .from('bookings')
@@ -211,6 +238,7 @@ export interface BookingListingSummaryRow {
 export async function getListingSummary(
   listingId: string,
 ): Promise<BookingListingSummaryRow | null> {
+  if (DEMO_MODE) return demo.demoListingSummary(listingId);
   const supabase = await createServerSupabase();
   const { data: listing, error } = await supabase
     .from('listings')
@@ -253,6 +281,11 @@ export interface ConfirmBookingParams {
 export async function confirmBookingAtomic(
   params: ConfirmBookingParams,
 ): Promise<Booking> {
+  if (DEMO_MODE) {
+    const booking = demo.demoBookingById(params.bookingId);
+    if (!booking) throw new RepositoryError('Demo booking not found');
+    return { ...booking, status: 'confirmed', updated_at: DEMO_TS };
+  }
   const supabase = getAdminSupabase();
   // `confirm_booking` is a Postgres function shipped by supabase/migrations; it is
   // not yet in the generated `Database['public']['Functions']` map, so we narrow to

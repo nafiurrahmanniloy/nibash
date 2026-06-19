@@ -16,6 +16,8 @@ import type { Collection } from '@travela/shared';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { RepositoryError } from '@/lib/errors';
 import type { PublicListingRow } from '@/features/listings/listings.repository';
+import { DEMO_MODE } from '@/lib/demo/flag';
+import * as demo from '@/lib/demo/data';
 
 /** Same public-safe projection the listings repo uses (no `address`). */
 const LISTING_PUBLIC_COLUMNS =
@@ -80,6 +82,7 @@ async function getUnavailableListingIds(
 export async function searchListings(
   filters: SearchFilters,
 ): Promise<SearchResultRows> {
+  if (DEMO_MODE) return demo.demoSearch(filters);
   const supabase = await createServerSupabase();
 
   let query = supabase
@@ -156,6 +159,7 @@ export interface CollectionWithListings {
 export async function getCollectionsWithListings(
   perCollection: number,
 ): Promise<CollectionWithListings[]> {
+  if (DEMO_MODE) return demo.demoCollections(perCollection);
   const supabase = await createServerSupabase();
 
   const { data: collections, error: collErr } = await supabase

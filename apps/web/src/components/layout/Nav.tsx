@@ -14,11 +14,16 @@ import Link from 'next/link';
 import { Search, Menu } from 'lucide-react';
 import { buttonVariants } from '@/components/ui/button-variants';
 import { cn } from '@/lib/cn';
+import { getCurrentUser, LogoutButton } from '@/features/auth';
 
 const focusRing =
   'rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2';
 
-export function Nav() {
+export async function Nav() {
+  // Auth-aware: resolve the session so the bar shows the right affordances.
+  const me = await getCurrentUser();
+  const user = me.ok ? me.data : null;
+
   return (
     <header className="sticky top-0 z-40 border-b border-line-default bg-surface-raised/95 backdrop-blur">
       <nav
@@ -49,34 +54,70 @@ export function Nav() {
           <span>Where to? Anywhere · Any week · Add guests</span>
         </Link>
 
-        {/* Auth + host links */}
+        {/* Auth + host links — signed-in vs signed-out affordances */}
         <div className="flex items-center gap-2">
-          <Link
-            href="/dashboard"
-            className={cn(
-              'hidden rounded-pill px-3 py-2 text-sm font-medium text-content-primary transition-colors duration-instant hover:bg-surface-subtle sm:inline-block',
-              focusRing,
-            )}
-          >
-            Become a host
-          </Link>
-          {/* Auth links styled with the Button variant classes (Button is a real
-              <button>, so links use buttonVariants to stay visually consistent). */}
-          <Link
-            href="/login"
-            className={cn(buttonVariants({ variant: 'secondary', size: 'sm' }))}
-          >
-            Log in
-          </Link>
-          <Link
-            href="/signup"
-            className={cn(
-              buttonVariants({ variant: 'primary', size: 'sm' }),
-              'hidden sm:inline-flex',
-            )}
-          >
-            Sign up
-          </Link>
+          {user ? (
+            <>
+              <Link
+                href="/bookings"
+                className={cn(
+                  'hidden rounded-pill px-3 py-2 text-sm font-medium text-content-primary transition-colors duration-instant hover:bg-surface-subtle sm:inline-block',
+                  focusRing,
+                )}
+              >
+                Trips
+              </Link>
+              <Link
+                href="/dashboard"
+                className={cn(
+                  'hidden rounded-pill px-3 py-2 text-sm font-medium text-content-primary transition-colors duration-instant hover:bg-surface-subtle sm:inline-block',
+                  focusRing,
+                )}
+              >
+                Host
+              </Link>
+              <Link
+                href="/profile"
+                aria-label="Your profile"
+                className={cn(
+                  'hidden text-sm font-medium text-content-secondary sm:inline-block',
+                  focusRing,
+                )}
+              >
+                {user.fullName ?? user.email}
+              </Link>
+              <LogoutButton />
+            </>
+          ) : (
+            <>
+              <Link
+                href="/dashboard"
+                className={cn(
+                  'hidden rounded-pill px-3 py-2 text-sm font-medium text-content-primary transition-colors duration-instant hover:bg-surface-subtle sm:inline-block',
+                  focusRing,
+                )}
+              >
+                Become a host
+              </Link>
+              {/* Auth links styled with the Button variant classes (Button is a real
+                  <button>, so links use buttonVariants to stay visually consistent). */}
+              <Link
+                href="/login"
+                className={cn(buttonVariants({ variant: 'secondary', size: 'sm' }))}
+              >
+                Log in
+              </Link>
+              <Link
+                href="/signup"
+                className={cn(
+                  buttonVariants({ variant: 'primary', size: 'sm' }),
+                  'hidden sm:inline-flex',
+                )}
+              >
+                Sign up
+              </Link>
+            </>
+          )}
           {/* Mobile menu affordance → search surface */}
           <Link
             href="/search"

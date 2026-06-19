@@ -12,6 +12,13 @@
 import type { Profile, UserRole } from '@travela/shared';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { RepositoryError } from '@/lib/errors';
+import { DEMO_MODE } from '@/lib/demo/flag';
+import {
+  DEMO_USER,
+  getDemoIdentity,
+  setDemoSession,
+  clearDemoSession,
+} from '@/lib/demo/session';
 
 /** Result of a credential auth call — the auth user id + email only. */
 export interface AuthIdentity {
@@ -34,6 +41,10 @@ export interface SignUpParams {
  * profile row can be seeded (either by a DB trigger or ensureProfileRow).
  */
 export async function signUp(params: SignUpParams): Promise<AuthIdentity> {
+  if (DEMO_MODE) {
+    await setDemoSession(params.email);
+    return { id: DEMO_USER.id, email: params.email };
+  }
   const supabase = await createServerSupabase();
   const { data, error } = await supabase.auth.signUp({
     email: params.email,
@@ -53,6 +64,10 @@ export async function signInWithPassword(
   email: string,
   password: string,
 ): Promise<AuthIdentity> {
+  if (DEMO_MODE) {
+    await setDemoSession(email);
+    return { id: DEMO_USER.id, email };
+  }
   const supabase = await createServerSupabase();
   const { data, error } = await supabase.auth.signInWithPassword({ email, password });
   if (error) throw new RepositoryError(error.message, { cause: error });
@@ -65,6 +80,10 @@ export async function signInWithPassword(
  * the browser to. PKCE/code-exchange completes at the auth callback route.
  */
 export async function signInWithOAuthGoogle(redirectTo: string): Promise<{ url: string }> {
+  if (DEMO_MODE) {
+    await setDemoSession('demo.google@travela.xyz');
+    return { url: '/' };
+  }
   const supabase = await createServerSupabase();
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
@@ -77,6 +96,10 @@ export async function signInWithOAuthGoogle(redirectTo: string): Promise<{ url: 
 
 /** End the current session. */
 export async function signOut(): Promise<void> {
+  if (DEMO_MODE) {
+    await clearDemoSession();
+    return;
+  }
   const supabase = await createServerSupabase();
   const { error } = await supabase.auth.signOut();
   if (error) throw new RepositoryError(error.message, { cause: error });
@@ -84,6 +107,7 @@ export async function signOut(): Promise<void> {
 
 /** The currently authenticated auth identity, or null when signed out. */
 export async function getAuthIdentity(): Promise<AuthIdentity | null> {
+  if (DEMO_MODE) return getDemoIdentity();
   const supabase = await createServerSupabase();
   const { data, error } = await supabase.auth.getUser();
   if (error || !data.user) return null;
@@ -92,6 +116,7 @@ export async function getAuthIdentity(): Promise<AuthIdentity | null> {
 
 /** Read a single profile row by id, or null if it does not exist. */
 export async function getProfile(userId: string): Promise<Profile | null> {
+  if (DEMO_MODE) return userId === DEMO_USER.id ? DEMO_USER : null;
   const supabase = await createServerSupabase();
   const { data, error } = await supabase
     .from('profiles')
@@ -117,6 +142,7 @@ export interface EnsureProfileParams {
  * Upsert on the primary key keeps it a single round-trip and race-safe.
  */
 export async function ensureProfileRow(params: EnsureProfileParams): Promise<Profile> {
+  if (DEMO_MODE) return DEMO_USER;
   const supabase = await createServerSupabase();
   const existing = await getProfile(params.userId);
   if (existing) return existing;

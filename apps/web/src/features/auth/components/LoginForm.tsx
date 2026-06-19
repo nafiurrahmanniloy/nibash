@@ -10,6 +10,7 @@
  * Submit calls loginAction (server action) and routes the discriminated Result.
  */
 import { useState, useTransition } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginInputSchema, type LoginInput } from '@travela/shared';
@@ -18,11 +19,13 @@ import { loginAction } from '../actions.js';
 import { GoogleButton } from './GoogleButton.js';
 
 export interface LoginFormProps {
-  /** Where to send the user after a successful sign-in (controller decides). */
+  /** Optional extra hook after a successful sign-in (navigation happens regardless). */
   onSuccess?: () => void;
 }
 
 export function LoginForm({ onSuccess }: LoginFormProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
   const [formError, setFormError] = useState<string | null>(null);
 
@@ -42,6 +45,9 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
       const result = await loginAction(values);
       if (result.ok) {
         onSuccess?.();
+        const next = searchParams.get('next') || '/';
+        router.push(next);
+        router.refresh(); // re-render server components so the nav reflects the session
         return;
       }
       // Map field-level errors back onto inputs; otherwise show a banner.

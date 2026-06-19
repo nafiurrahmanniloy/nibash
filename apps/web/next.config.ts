@@ -17,6 +17,9 @@ const remotePatterns: RemotePattern[] = [
     hostname: 'maps.googleapis.com',
     pathname: '/maps/api/staticmap**',
   },
+  // Demo-mode placeholder photos (lib/demo fixtures).
+  { protocol: 'https', hostname: 'picsum.photos', pathname: '/**' },
+  { protocol: 'https', hostname: 'fastly.picsum.photos', pathname: '/**' },
 ];
 
 if (supabaseHost) {

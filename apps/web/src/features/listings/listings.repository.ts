@@ -14,6 +14,8 @@ import type {
 } from '@travela/shared';
 import { createServerSupabase } from '@/lib/supabase/server';
 import { RepositoryError } from '@/lib/errors';
+import { DEMO_MODE } from '@/lib/demo/flag';
+import * as demo from '@/lib/demo/data';
 
 /** Columns of `listings` that are safe to read for the public detail view. */
 const LISTING_PUBLIC_COLUMNS =
@@ -32,6 +34,7 @@ export interface ListingRatingRow {
 export async function getPublishedListingBySlug(
   slug: string,
 ): Promise<PublicListingRow | null> {
+  if (DEMO_MODE) return demo.demoListingBySlug(slug);
   const supabase = await createServerSupabase();
   const { data, error } = await supabase
     .from('listings')
@@ -45,6 +48,7 @@ export async function getPublishedListingBySlug(
 
 /** Newest published listings (for the home "New arrivals" grid). */
 export async function listNewArrivals(limit: number): Promise<PublicListingRow[]> {
+  if (DEMO_MODE) return demo.demoNewArrivals(limit);
   const supabase = await createServerSupabase();
   const { data, error } = await supabase
     .from('listings')
@@ -58,6 +62,7 @@ export async function listNewArrivals(limit: number): Promise<PublicListingRow[]
 
 /** Ordered gallery images for a listing (cover first, then sort_order). */
 export async function getListingImages(listingId: string): Promise<ListingImage[]> {
+  if (DEMO_MODE) return demo.demoImagesFor(listingId);
   const supabase = await createServerSupabase();
   const { data, error } = await supabase
     .from('listing_images')
@@ -74,6 +79,7 @@ export async function getCoverImageMap(
   listingIds: string[],
 ): Promise<Record<string, string>> {
   if (listingIds.length === 0) return {};
+  if (DEMO_MODE) return demo.demoCoverMap(listingIds);
   const supabase = await createServerSupabase();
   const { data, error } = await supabase
     .from('listing_images')
@@ -93,6 +99,7 @@ export async function getCoverImageMap(
 
 /** Amenities attached to a listing (joined through listing_amenities). */
 export async function getListingAmenities(listingId: string): Promise<Amenity[]> {
+  if (DEMO_MODE) return demo.demoAmenitiesFor(listingId);
   const supabase = await createServerSupabase();
   const { data, error } = await supabase
     .from('listing_amenities')
@@ -109,6 +116,7 @@ export async function getListingAmenities(listingId: string): Promise<Amenity[]>
 
 /** Compact host profile for the listing host card (public-safe columns only). */
 export async function getHostCard(hostId: string): Promise<Profile | null> {
+  if (DEMO_MODE) return demo.demoHost(hostId);
   const supabase = await createServerSupabase();
   const { data, error } = await supabase
     .from('profiles')
@@ -123,6 +131,7 @@ export async function getHostCard(hostId: string): Promise<Profile | null> {
 
 /** Aggregate rating (avg + count) for a listing from its reviews. */
 export async function getListingRating(listingId: string): Promise<ListingRatingRow> {
+  if (DEMO_MODE) return demo.demoRating(listingId);
   const supabase = await createServerSupabase();
   const { data, error } = await supabase
     .from('reviews')
@@ -141,6 +150,7 @@ export async function getRatingMap(
   listingIds: string[],
 ): Promise<Record<string, ListingRatingRow>> {
   if (listingIds.length === 0) return {};
+  if (DEMO_MODE) return demo.demoRatingMap(listingIds);
   const supabase = await createServerSupabase();
   const { data, error } = await supabase
     .from('reviews')

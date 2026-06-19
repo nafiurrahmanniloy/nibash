@@ -9,6 +9,7 @@
  * Submit calls signupAction; field errors from the Result map back onto inputs.
  */
 import { useState, useTransition } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signupInputSchema, type SignupInput } from '@travela/shared';
@@ -21,6 +22,8 @@ export interface SignupFormProps {
 }
 
 export function SignupForm({ onSuccess }: SignupFormProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
   const [formError, setFormError] = useState<string | null>(null);
 
@@ -40,6 +43,9 @@ export function SignupForm({ onSuccess }: SignupFormProps) {
       const result = await signupAction(values);
       if (result.ok) {
         onSuccess?.();
+        const next = searchParams.get('next') || '/';
+        router.push(next);
+        router.refresh(); // re-render server components so the nav reflects the session
         return;
       }
       const fields = result.error.fields;

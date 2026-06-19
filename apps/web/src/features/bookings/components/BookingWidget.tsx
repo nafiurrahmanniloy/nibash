@@ -43,6 +43,7 @@ export function BookingWidget({
   const [checkOut, setCheckOut] = useState('');
   const [guests, setGuests] = useState(1);
   const [error, setError] = useState<string | null>(null);
+  const [requested, setRequested] = useState(false);
   const [isPending, startTransition] = useTransition();
 
   const nights = useMemo(
@@ -84,6 +85,7 @@ export function BookingWidget({
         guests,
       });
       if (result.ok) {
+        setRequested(true);
         onRequested?.(result.data.id);
         return;
       }
@@ -166,15 +168,25 @@ export function BookingWidget({
         </p>
       ) : null}
 
-      <Button
-        type="submit"
-        variant="primary"
-        loading={isPending}
-        disabled={!canSubmit}
-        className="w-full"
-      >
-        Request to book
-      </Button>
+      {requested ? (
+        <p
+          role="status"
+          className="rounded-sm bg-surface-subtle px-3 py-3 text-sm text-content-primary"
+        >
+          <span className="font-semibold text-brand">Request sent.</span> The host will
+          review your dates and confirm shortly — you’ll see it under Trips.
+        </p>
+      ) : (
+        <Button
+          type="submit"
+          variant="primary"
+          loading={isPending}
+          disabled={!canSubmit}
+          className="w-full"
+        >
+          Request to book
+        </Button>
+      )}
     </form>
   );
 }

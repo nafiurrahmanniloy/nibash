@@ -15,6 +15,7 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { createServerClient } from '@supabase/ssr';
 import type { Database, UserRole } from '@travela/shared';
+import { DEMO_MODE, DEMO_COOKIE, DEMO_ROLE } from '@/lib/demo/flag';
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
 const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
@@ -47,6 +48,25 @@ function roleSatisfies(actual: UserRole, required: UserRole | 'any'): boolean {
 }
 
 export async function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  // DEMO_MODE: no real Supabase to ask, so gate protected routes on the demo session
+  // cookie + the fixed demo role. Short-circuits before any Supabase client is created.
+  if (DEMO_MODE) {
+    const required = requiredRoleFor(pathname);
+    if (!required) return NextResponse.next();
+    const signedIn = Boolean(request.cookies.get(DEMO_COOKIE)?.value);
+    if (!signedIn) {
+      const loginUrl = new URL('/login', request.url);
+      loginUrl.searchParams.set('next', pathname);
+      return NextResponse.redirect(loginUrl);
+    }
+    if (required !== 'any' && !roleSatisfies(DEMO_ROLE, required)) {
+      return NextResponse.redirect(new URL('/', request.url));
+    }
+    return NextResponse.next();
+  }
+
   let response = NextResponse.next({ request });
 
   const supabase = createServerClient<Database>(SUPABASE_URL, SUPABASE_ANON_KEY, {
@@ -71,7 +91,6 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const { pathname } = request.nextUrl;
   const required = requiredRoleFor(pathname);
 
   if (required) {

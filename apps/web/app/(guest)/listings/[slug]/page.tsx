@@ -121,7 +121,12 @@ export default async function ListingDetailPage({
 
         {/* Booking sidebar (sticky on desktop) */}
         <aside className="lg:sticky lg:top-20 lg:self-start">
-          <BookingWidget listing={listing} />
+          <BookingWidget
+            listingId={listing.id}
+            pricePerDay={listing.pricePerDay}
+            maxGuests={listing.maxGuests}
+            minNights={listing.minNights}
+          />
         </aside>
       </div>
     </div>

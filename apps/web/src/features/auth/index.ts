@@ -8,6 +8,7 @@ export type { LoginFormProps } from './components/LoginForm.js';
 export { SignupForm } from './components/SignupForm.js';
 export type { SignupFormProps } from './components/SignupForm.js';
 export { GoogleButton } from './components/GoogleButton.js';
+export { LogoutButton } from './components/LogoutButton.js';
 
 export { signupAction, loginAction, googleAction, logoutAction } from './actions.js';
 // getCurrentUser is consumed by server components/layouts to resolve the session.
