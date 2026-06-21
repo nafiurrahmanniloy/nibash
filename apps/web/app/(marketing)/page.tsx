@@ -18,6 +18,16 @@ import { getNewArrivals } from '@/features/listings';
 import { getCollections, ListingGrid, CollectionBand } from '@/features/search';
 import { HomeSearchBar } from '@/components/search/HomeSearchBar';
 import { HomeCategoryChips } from '@/components/search/HomeCategoryChips';
+import { ScrollVideoHero, type HeroCaption } from '@/components/marketing/ScrollVideoHero';
+
+// Captions that crossfade over the scroll-scrubbed hero video. Edit freely —
+// the first one renders as the page <h1>. Keep them short; they read like beats.
+const HERO_CAPTIONS: HeroCaption[] = [
+  { title: 'Stay anywhere in Bangladesh', subtitle: 'From Cox’s Bazar sands to the Bandarban hills.' },
+  { title: 'Verified homes, honest prices', subtitle: 'Every host and listing reviewed before it goes live.' },
+  { title: 'Book in minutes', subtitle: 'Request to book, pay securely, and pack your bags.' },
+  { title: 'Your next trip starts here', subtitle: 'Find a place that feels like home — Nibash.' },
+];
 
 const WHY_US = [
   { icon: BadgeCheck, title: 'Verified stays', body: 'Every host and listing is reviewed before it goes live.' },
@@ -38,15 +48,19 @@ export default async function HomePage() {
   const collections = collectionsResult.ok ? collectionsResult.data : [];
 
   return (
-    <div className="page-shell pb-16">
-      {/* Hero */}
+    <>
+      {/* Scroll-scrubbed video hero (full-bleed). Carries the page <h1>. */}
+      <ScrollVideoHero captions={HERO_CAPTIONS} />
+
+      <div className="page-shell pb-16">
+      {/* Search hero */}
       <section className="py-10 md:py-16" aria-labelledby="hero-heading">
-        <h1
+        <h2
           id="hero-heading"
           className="font-display text-3xl font-bold text-content-primary md:text-4xl"
         >
-          Stay anywhere in Bangladesh
-        </h1>
+          Find your stay
+        </h2>
         <p className="mt-3 max-w-2xl text-md text-content-secondary">
           Apartments, private rooms, villas, and resorts — request to book, pay
           securely, and stay with confidence.
@@ -148,6 +162,7 @@ export default async function HomePage() {
           Read travel guides on the Nibash blog →
         </Link>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
