@@ -26,7 +26,7 @@ export function ScrollVideoHero({
   framePath = '/scroll-frames',
   captions,
   /** Scroll length of the section, in svh. Longer = slower, smoother scrub. */
-  scrollHeightVh = 500,
+  scrollHeightVh = 320,
 }: {
   frameCount?: number;
   framePath?: string;
