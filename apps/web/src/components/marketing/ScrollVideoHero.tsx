@@ -83,7 +83,9 @@ export function ScrollVideoHero({
     const ctx = canvas.getContext('2d');
     if (!ctx || !img) return;
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    // Source frames are 1440px wide — backing a canvas wider than that just
+    // burns fill-rate. Cap at 1 so a full-screen retina canvas isn't drawn at 2×.
+    const dpr = 1;
     const cw = canvas.clientWidth;
     const ch = canvas.clientHeight;
     const targetW = Math.round(cw * dpr);
@@ -230,12 +232,6 @@ export function ScrollVideoHero({
             </span>
           </div>
         ) : null}
-
-        {/* Tall bottom fade into the page surface for a seamless handoff. */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-surface-base"
-        />
       </div>
     </section>
   );
