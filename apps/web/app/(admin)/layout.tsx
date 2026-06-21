@@ -8,5 +8,5 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="mx-auto max-w-7xl px-4 py-8 md:px-6">{children}</div>;
+  return <div className="page-shell py-8">{children}</div>;
 }

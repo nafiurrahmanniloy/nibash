@@ -46,7 +46,7 @@ export default async function LegalDocPage({
   if (!entry) notFound();
 
   return (
-    <article className="mx-auto max-w-3xl px-4 py-10 md:px-6">
+    <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
       <h1 className="font-display text-3xl font-bold text-content-primary">
         {entry.title}
       </h1>

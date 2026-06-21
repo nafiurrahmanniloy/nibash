@@ -29,7 +29,7 @@ export async function Nav() {
     <header className="sticky top-0 z-40 border-b border-line-default bg-surface-raised/95 backdrop-blur">
       <nav
         aria-label="Primary"
-        className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 md:px-6"
+        className="page-shell flex h-16 items-center justify-between gap-4"
       >
         {/* Brand */}
         <Link

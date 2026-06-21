@@ -21,7 +21,7 @@ export default function PopularLocationsPage() {
   const locations = demoLocations();
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+    <div className="page-shell py-8">
       <h1 className="font-display text-3xl font-bold text-content-primary">
         Popular locations
       </h1>

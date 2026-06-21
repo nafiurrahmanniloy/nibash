@@ -49,7 +49,7 @@ export default async function ListingDetailPage({
   const listing = result.data;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-6 md:px-6">
+    <div className="page-shell py-6">
       <header className="mb-4">
         <h1 className="font-display text-2xl font-bold text-content-primary md:text-3xl">
           {listing.title}

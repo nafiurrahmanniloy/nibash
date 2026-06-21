@@ -45,7 +45,7 @@ export default async function BrowseCategoryPage({
   const cities = demoLocations().slice(0, 8);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+    <div className="page-shell py-8">
       <nav aria-label="Breadcrumb" className="text-sm text-content-muted">
         <Link href="/" className="hover:text-content-primary">
           Home

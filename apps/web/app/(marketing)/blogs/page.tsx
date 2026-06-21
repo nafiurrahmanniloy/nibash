@@ -28,7 +28,7 @@ export default function BlogsPage() {
   const [featured, ...rest] = posts;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8 md:px-6">
+    <div className="page-shell py-8">
       <h1 className="font-display text-3xl font-bold text-content-primary">The Nibash blog</h1>
       <p className="mt-1 text-content-secondary">
         Travel guides, city tips, and where to stay across Bangladesh.

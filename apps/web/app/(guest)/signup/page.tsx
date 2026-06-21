@@ -17,7 +17,7 @@ const linkClass =
 
 export default function SignupPage() {
   return (
-    <div className="mx-auto flex max-w-md flex-col px-4 py-12 md:px-6">
+    <div className="mx-auto flex max-w-md flex-col px-4 py-12 sm:px-6 lg:px-8">
       <h1 className="font-display text-2xl font-bold text-content-primary">
         Create your account
       </h1>

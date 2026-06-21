@@ -12,6 +12,19 @@
  */
 @import '@nibash/shared/tokens/css-variables.css';
 
+@layer components {
+  /*
+   * page-shell — single source of truth for horizontal page rhythm. Centers
+   * content, caps width so it never runs edge-to-edge, and scales the left/right
+   * gutters with the viewport (16px phones → 24px tablets → 32px desktops → 48px
+   * large) so the side margins stay balanced and proportional on any display, from
+   * small phones to wide monitors. Pages add their own vertical padding (py-*).
+   */
+  .page-shell {
+    @apply mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+}
+
 @layer base {
   html {
     -webkit-text-size-adjust: 100%;

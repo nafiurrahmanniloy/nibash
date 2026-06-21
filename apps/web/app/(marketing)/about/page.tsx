@@ -20,7 +20,7 @@ const VALUES = [
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12 md:px-6">
+    <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
       <p className="font-display text-sm font-semibold uppercase tracking-wide text-brand">
         About us
       </p>

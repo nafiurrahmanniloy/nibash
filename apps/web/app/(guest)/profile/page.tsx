@@ -22,7 +22,7 @@ export default async function ProfilePage() {
   const me = user.data;
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-8 md:px-6">
+    <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 lg:px-8">
       <h1 className="font-display text-2xl font-bold text-content-primary">
         Your profile
       </h1>

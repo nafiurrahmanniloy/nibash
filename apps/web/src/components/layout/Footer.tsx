@@ -58,7 +58,7 @@ export function Footer() {
           columns) can scroll clear of the fixed BottomNav on guest routes; the
           short bottom-nav (~64px) plus breathing room. Removed at md where the
           BottomNav is hidden. */}
-      <div className="mx-auto max-w-7xl px-4 pb-28 pt-8 md:px-6 md:pb-8">
+      <div className="page-shell pb-28 pt-8 md:pb-8">
         <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
             <p className="font-display text-lg font-bold text-brand">Nibash</p>

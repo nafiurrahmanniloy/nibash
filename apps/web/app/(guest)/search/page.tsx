@@ -43,7 +43,7 @@ export default async function SearchPage({
     : { items: [], page: 1, pageSize: params.pageSize, total: 0, totalPages: 0 };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-6 md:px-6">
+    <div className="page-shell py-6">
       <h1 className="font-display text-2xl font-bold text-content-primary">
         {page.total > 0
           ? `${page.total} ${page.total === 1 ? 'stay' : 'stays'}`

@@ -38,7 +38,7 @@ export default async function HomePage() {
   const collections = collectionsResult.ok ? collectionsResult.data : [];
 
   return (
-    <div className="mx-auto max-w-7xl px-4 pb-16 md:px-6">
+    <div className="page-shell pb-16">
       {/* Hero */}
       <section className="py-10 md:py-16" aria-labelledby="hero-heading">
         <h1

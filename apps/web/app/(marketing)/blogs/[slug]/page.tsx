@@ -39,7 +39,7 @@ export default async function BlogPostPage({ params }: { params: Promise<Params>
     .slice(0, 3);
 
   return (
-    <article className="mx-auto max-w-3xl px-4 py-10 md:px-6">
+    <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6 lg:px-8">
       <nav aria-label="Breadcrumb" className="text-sm text-content-muted">
         <Link href="/blogs" className="hover:text-content-primary">
           Blog
