@@ -142,30 +142,50 @@ export function ScrollVideoHero({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [frameCount, framePath]);
 
-  // Single rAF-driven scroll loop. No React re-renders here.
+  // Continuous rAF loop with inertia (lerp). The raw scroll position is the
+  // TARGET; the displayed progress eases toward it every frame. This is what
+  // makes premium scroll-scrubbers feel buttery — a chunky mouse wheel still
+  // produces smooth, momentum-y playback instead of jumping frame to frame.
   useEffect(() => {
     let raf = 0;
-    const update = () => {
-      raf = 0;
+    let target = 0;
+    let disp = -1; // -1 = uninitialised → snap on first tick (no intro slide)
+    let idle = false;
+
+    const readTarget = () => {
       const el = wrapRef.current;
-      if (!el) return;
-      const rm = reduceMotionRef.current;
-      let p = 0;
-      if (!rm) {
-        const rect = el.getBoundingClientRect();
-        const scrollable = rect.height - window.innerHeight;
-        p = scrollable > 0 ? clamp(-rect.top / scrollable, 0, 1) : 0;
-      }
-      drawFrame(rm ? 0 : Math.round(p * (frameCount - 1)));
-      applyProgress(rm ? 0 : p);
+      if (!el || reduceMotionRef.current) return 0;
+      const rect = el.getBoundingClientRect();
+      const scrollable = rect.height - window.innerHeight;
+      return scrollable > 0 ? clamp(-rect.top / scrollable, 0, 1) : 0;
     };
-    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
-    const onResize = () => { lastDrawnRef.current = -1; onScroll(); };
-    update();
-    window.addEventListener('scroll', onScroll, { passive: true });
+
+    const render = (p: number) => {
+      drawFrame(Math.round(p * (frameCount - 1)));
+      applyProgress(p);
+    };
+
+    const tick = () => {
+      target = readTarget();
+      if (disp < 0) disp = target; // first frame: snap, don't animate from 0
+      // Ease factor 0.14 ≈ a smooth glide that still keeps up with fast scrolls.
+      const next = disp + (target - disp) * 0.14;
+      disp = Math.abs(target - next) < 0.0004 ? target : next;
+      render(disp);
+      if (disp === target) { idle = true; raf = 0; return; } // settle → stop
+      raf = requestAnimationFrame(tick);
+    };
+
+    const wake = () => { if (idle || !raf) { idle = false; if (!raf) raf = requestAnimationFrame(tick); } };
+    const onResize = () => { lastDrawnRef.current = -1; wake(); };
+
+    if (reduceMotionRef.current) { render(0); }
+    else { raf = requestAnimationFrame(tick); }
+
+    window.addEventListener('scroll', wake, { passive: true });
     window.addEventListener('resize', onResize);
     return () => {
-      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('scroll', wake);
       window.removeEventListener('resize', onResize);
       if (raf) cancelAnimationFrame(raf);
     };
